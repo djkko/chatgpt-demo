@@ -1,15 +1,25 @@
 edition: 1.0.0
 name: my-framework-app
 access: default
+vars: # 全局变量
+  region: "cn-hangzhou"
+  functionName: "web"
+  service:
+    name: "chat-web"
+    description: 'Serverless Chat Web'
+    role: 
+      name: defaultrole
+      policies:
+        - AliyunFCFullAccess
+        - AliyunYundunGreenWebFullAccess
 services:
   framework:
     component: fc
     props:
       region: cn-hangzhou
-      service:
-        name: serverless-devs-application
+      service: ${vars.service}
       function:
-        name: chatgpt-demo-45ae
+        name: ${vars.functionName}
         description: Initialize
         runtime: custom
         environmentVariables:
