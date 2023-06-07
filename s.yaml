@@ -46,7 +46,7 @@ services:
         timeout: 60
         codeUri: ./
         diskSize: 512
-        caPort: 9001
+        caPort: 3000
         customRuntimeConfig:
           command:
             - npm
